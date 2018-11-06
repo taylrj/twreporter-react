@@ -72,10 +72,9 @@ test:
 
 ui-test:
 	@echo "Run UI-test"
-	@for pid in $(ps -ef | awk '/server/ {print $2}'); do \
-		echo $$pid; \
-		kill -9 $$pid; \
-	done
+	for	number	in	1	2	3	4;	do	\
+    	echo	$$number;	\
+    done
 
 clean: 
 	@echo "delete auto generated files, including processes.json, sw.js, dist/ and webpack-assets.json\n"
