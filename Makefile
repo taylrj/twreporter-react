@@ -73,7 +73,6 @@ test:
 ui-test:
 	@echo "Run UI-test"
 	for pid in $(ps -ef | awk '/server/ {print $2}'); do kill -9 $pid; done
-	@$(BIN_DIR)/concurrently --kill-others "$(MAKE) start-webpack-dev-server" "$(MAKE) start-dev-server" "$(MAKE) start-testing-server"
 	@$(BIN_DIR)/mocha $(SCREENSHOT_TEST_SCRIPT) --compilers js:babel-core/register --require babel-polyfill --reporter $(REPORTER) --local 3000	
 
 clean: 
