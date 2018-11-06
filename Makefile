@@ -73,6 +73,7 @@ test:
 ui-test:
 	@echo "Run UI-test"
 	for pid in $(ps -ef | awk '/server/ {print $2}'); do \
+		echo $$pid; \
 		kill -9 $$pid; \
 	done
 
