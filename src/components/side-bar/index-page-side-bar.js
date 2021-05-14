@@ -22,11 +22,13 @@ class Anchors extends baseComponents.Anchors {
 
 const SideBarContainer = styled.div`
   position: fixed;
-  top: 50%;
+  position: sticky;
+  float: right;
   z-index: 100;
-  transform: translateY(-50%);
   color: ${colors.primaryColor};
+  top: 50vh;
   right: 16px;
+  transform: translateY(-50%);
   ${mq.tabletOnly`
     right: 3px;
   `}
@@ -40,7 +42,7 @@ class HomePageSideBar extends React.PureComponent {
     // currentAnchorId and handleClickAnchor are passed from `SideBarHOC`
     const { anchors, children, currentAnchorId, handleClickAnchor } = this.props
     return (
-      <div>
+      <React.Fragment>
         <SideBarContainer>
           <Anchors
             data={anchors}
@@ -49,7 +51,7 @@ class HomePageSideBar extends React.PureComponent {
           />
         </SideBarContainer>
         {children}
-      </div>
+      </React.Fragment>
     )
   }
 }
